@@ -48,11 +48,11 @@ function refreshData(){
             updateEggNumber(formatEggs(eggs))
 
         }
-        var timeuntilfulldoc=document.getElementById('timeuntilfull')
-        secondsuntilfull=eggstohatch1-eggs/lastNumShrimp
-        console.log('secondsuntilfull ',secondsuntilfull,eggstohatch1,eggs,lastNumShrimp)
-        lastSecondsUntilFull=secondsuntilfull
-        timeuntilfulldoc.textContent=secondsToString(secondsuntilfull)
+        var timeuntilfulldoc = document.getElementById('timeuntilfull');
+        secondsuntilfull = eggstohatch1 - eggs/lastNumShrimp;
+        console.log('secondsuntilfull ',secondsuntilfull,eggstohatch1,eggs,lastNumShrimp);
+        lastSecondsUntilFull=secondsuntilfull;
+        timeuntilfulldoc.textContent = secondsToString(secondsuntilfull);
         if(lastNumShrimp==0){
             timeuntilfulldoc.textContent='?'
         }

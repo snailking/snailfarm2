@@ -1351,14 +1351,14 @@ function snailmasterReq(callback){
     });
 }
 
-function spiderReq(callback){
+function spiderqueenReq(callback){ // CHANGE TO spiderReq FOR MAINNET
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.spiderReq.getData();
+    var outputData = myContract.spiderqueenReq.getData(); // CHANGE TO spiderReq FOR MAINNET
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('spiderReq ',web3.toDecimal(result));
+            console.log('spiderqueenReq ',web3.toDecimal(result)); // CHANGE TO spiderReq FOR MAINNET
             callback(web3.toDecimal(result))
         }
         else{

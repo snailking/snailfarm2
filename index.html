@@ -106,12 +106,12 @@
                         <img src="shrimpegg.png" width="50" height="50" alt="Egg">
                     </div>
                     
-                    <div class="col-md-4"><p><a class="btn btn-lg btn-success" onclick="hatchEggs1(displayTransactionMessage)" role="button">Hatch <span id="hatchshrimpquantity">?</span> Snail</a></p></div>
+                    <div class="col-md-4"><p><a class="btn btn-lg btn-success" onclick="hatchEggs1()" role="button">Hatch <span id="hatchshrimpquantity">?</span> Snail</a></p></div>
               </div>
               <div class="row">
                   <div class="col-md-4"></div>
                   <div class="col-md-4">
-                    <p><a class="btn btn-lg btn-info" onclick="sellEggs(displayTransactionMessage)"  role="button">Sell For <span id="sellprice">?</span></a></p>
+                    <p><a class="btn btn-lg btn-info" onclick="SellEggs(displayTransactionMessage)"  role="button">Sell For <span id="sellprice">?</span></a></p>
                   </div>
               </div>
                 <div class="row">
@@ -144,8 +144,8 @@
                     </div>
                 <div class="col-md-7">
 					<!--<h4>Current Snailmaster: <span id="currentsnailmaster">?</span></h4><br>-->
-                    <a class="btn btn-lg btn-success" onclick="becomeSnailmaster(displayTransactionMessage)"  role="button">Become the Snailmaster</a>
-                    <h2>Requirement: <span id="snailmasterprice">?</span> Snails</h2>
+                    <a class="btn btn-lg btn-success" onclick="BecomeSnailmaster(displayTransactionMessage)"  role="button">Become the Snailmaster</a>
+                    <h2>Requirement: <span id="snailmasterreq">?</span> Snails</h2>
 					<h4><br>The next sacrifice will require 100,000 more snails.
 					<br>(NOTE: if you have eggs, some of them will disappear when you sacrifice snails. Make sure to hatch first!)
                 </div>
