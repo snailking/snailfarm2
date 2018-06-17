@@ -1546,7 +1546,7 @@ function GetMySnail(callback){
     });
 }
 
-function GetMyEgg(callback){
+function GetMyEgg(callback){ // getMyEggs() from shrimp = ComputeMyEggs() 
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
     var outputData = myContract.GetMyEgg.getData();

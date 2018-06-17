@@ -41,7 +41,7 @@ function refreshData(){
     TIME_TO_HATCH_1SNAIL(function(eggs){
         eggstohatch1=eggs
     });
-    GetMyEgg(function(eggs){//here
+    ComputeMyEggs(function(eggs){//here
         if(lastNumEggs!=eggs){
             lastNumEggs=eggs
             lastUpdate=new Date().getTime()
@@ -122,7 +122,7 @@ function liveUpdateEggs(){
 function updateSellPrice(){
     var eggstoselldoc=document.getElementById('sellprice')
     //eggstoselldoc.textContent='?'
-   GetMyEgg(function(eggs){
+   ComputeMyEggs(function(eggs){
         ComputeSell(eggs,function(wei){
                console.log('sellprice ',wei)
                eggstoselldoc.textContent=formatEthValue(web3.fromWei(wei,'ether'))
