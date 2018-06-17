@@ -32,7 +32,7 @@ function refreshData(){
         eggs=eggs/10
         ComputeSell(eggs,function(wei){
                 console.log('examplesellprice ',wei)
-                sellsforexampledoc.textContent='('+formatEggs(eggs)+' eggs would sell for '+formatEthValue(web3.fromWei(wei-fee,'ether'))+')'
+                sellsforexampledoc.textContent='('+formatEggs(eggs)+' eggs would sell for '+formatEthValue(web3.fromWei(wei,'ether'))+')'
         });
     });
     lastHatch(web3.eth.accounts[0],function(lh){
@@ -125,7 +125,7 @@ function updateSellPrice(){
    GetMyEgg(function(eggs){
         ComputeSell(eggs,function(wei){
                console.log('sellprice ',wei)
-               eggstoselldoc.textContent=formatEthValue(web3.fromWei(wei-fee,'ether'))
+               eggstoselldoc.textContent=formatEthValue(web3.fromWei(wei,'ether'))
         });
    });
 }
@@ -136,7 +136,7 @@ function updateBuyPrice(){
     var ethtospenddoc=document.getElementById('ethtospend')
     weitospend=web3.toWei(ethtospenddoc.value,'ether')
     ComputeBuy(weitospend,function(eggs){ 
-            eggstobuydoc.textContent=formatEggs(eggs-fee)
+            eggstobuydoc.textContent=formatEggs(eggs)
     });
 }
 
