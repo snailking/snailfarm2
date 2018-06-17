@@ -73,7 +73,7 @@ function refreshData(){
             }
         }
         var productiondoc=document.getElementById('production')
-        productiondoc.textContent=formatEggs(lastNumShrimp*60*60/100)//not sure why this is 100x higher than norm
+        productiondoc.textContent=formatEggs(lastNumShrimp*60*60)
     });
     updateBuyPrice()
     updateSellPrice()
