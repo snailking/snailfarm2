@@ -81,10 +81,10 @@ function refreshData(){
 	updateSpiderReq()
 	updateSquirrelReq()
 	updateTadpoleReq()
-	updateCurrentSnailmaster()
-	updateCurrentSpider()
-	updateCurrentSquirrel()
-	updateCurrentTadpole()
+	//updateCurrentSnailmaster()
+	//updateCurrentSpider()
+	//updateCurrentSquirrel()
+	//updateCurrentTadpole()
     var prldoc = document.getElementById('playerreflink'); 
 	prldoc.textContent = window.location.protocol + '//' + window.location.host + window.location.pathname + "?ref=" + web3.eth.accounts[0]; 
 	var copyText = document.getElementById("copytextthing"); 
@@ -148,7 +148,7 @@ function updateSnailmasterReq(){
 }
 
 function updateSpiderReq(){
-    var spiderpricedoc=document.getElementById('spiderreq')
+    var spiderreqdoc=document.getElementById('spiderreq')
 	spiderqueenReq(function(req) { // CHANGE TO spiderReq FOR MAINNET
 		spiderreqdoc.textContent = translateQuantity(req, 0);
 	});
