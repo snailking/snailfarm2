@@ -1222,8 +1222,8 @@ function ComputeAcornPrice(callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeAcornPrice ', );
-            callback()
+            console.log('ComputeAcornPrice ', web3.toDecimal(result));
+            callback(web3.toDecimal(result))
         }
         else{
             console.log('error :(')
@@ -1231,15 +1231,15 @@ function ComputeAcornPrice(callback){
     });
 }
 
-function ComputeSell(callback){
+function ComputeSell(eggs, callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.ComputeSell.getData();
+    var outputData = myContract.ComputeSell.getData(eggs);
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeAcornPrice ', );
-            callback()
+            console.log('ComputeAcornPrice ', web3.toDecimal(result));
+            callback(web3.toDecimal(result))
         }
         else{
             console.log('error :(')
@@ -1247,15 +1247,15 @@ function ComputeSell(callback){
     });
 }
 
-function ComputeBuy(callback){
+function ComputeBuy(eth, callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.ComputeBuy.getData();
+    var outputData = myContract.ComputeBuy.getData(eth);
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeAcornPrice ', );
-            callback()
+            console.log('ComputeAcornPrice ', web3.toDecimal(result));
+            callback(web3.toDecimal(result))
         }
         else{
             console.log('error :(')

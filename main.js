@@ -38,7 +38,7 @@ function refreshData(){
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
     });
-    EGGS_TO_HATCH_1SHRIMP(function(eggs){
+    TIME_TO_HATCH_1SNAIL(function(eggs){
         eggstohatch1=eggs
     });
     GetMyEgg(function(eggs){//here
