@@ -1238,7 +1238,7 @@ function ComputeSell(eggs, callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeAcornPrice ', web3.toDecimal(result));
+            console.log('ComputeSell ', web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{
@@ -1254,7 +1254,7 @@ function ComputeBuy(eth, callback){
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('ComputeAcornPrice ', web3.toDecimal(result));
+            console.log('ComputeBuy ', web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{

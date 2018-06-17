@@ -41,7 +41,7 @@ function refreshData(){
     TIME_TO_HATCH_1SNAIL(function(eggs){
         eggstohatch1=eggs
     });
-    ComputeMyEggs(function(eggs){//here
+    ComputeMyEggs(function(eggs){
         if(lastNumEggs!=eggs){
             lastNumEggs=eggs
             lastUpdate=new Date().getTime()
@@ -73,7 +73,7 @@ function refreshData(){
             }
         }
         var productiondoc=document.getElementById('production')
-        productiondoc.textContent=formatEggs(lastNumShrimp*60*60)
+        productiondoc.textContent=formatEggs(lastNumShrimp*60*60/100)//not sure why this is 100x higher than norm
     });
     updateBuyPrice()
     updateSellPrice()
@@ -85,26 +85,30 @@ function refreshData(){
 	//updateCurrentSpider()
 	//updateCurrentSquirrel()
 	//updateCurrentTadpole()
-    var prldoc = document.getElementById('playerreflink'); 
-	prldoc.textContent = window.location.protocol + '//' + window.location.host + window.location.pathname + "?ref=" + web3.eth.accounts[0]; 
-	var copyText = document.getElementById("copytextthing"); 
-	copyText.value = prldoc.textContent;
+    //var prldoc = document.getElementById('playerreflink'); 
+	//prldoc.textContent = window.location.protocol + '//' + window.location.host + window.location.pathname + "?ref=" + web3.eth.accounts[0]; 
+	//var copyText = document.getElementById("copytextthing"); 
+	//copyText.value = prldoc.textContent;
 
 }
 
 function updateEggNumber(eggs){
-    var hatchshrimpquantitydoc=document.getElementById('hatchshrimpquantity')
-    hatchshrimpquantitydoc.textContent=translateQuantity(eggs,0)
-    var allnumeggs=document.getElementsByClassName('numeggs')
-    for(var i=0;i<allnumeggs.length;i++){
+    var hatchshrimpquantitydoc = document.getElementById('hatchshrimpquantity')
+    hatchshrimpquantitydoc.textContent = translateQuantity(eggs,0)
+    var allnumeggs = document.getElementsByClassName('numeggs')
+    for(var i=0 ; i<allnumeggs.length ; i++){
         if(allnumeggs[i]){
-            allnumeggs[i].textContent=translateQuantity(eggs)
+            allnumeggs[i].textContent=translateQuantity(eggs);
         }
     }
 }
 
 function hatchEggs1(){
-    HatchEggs(displayTransactionMessage())
+    var ethtospenddoc=0.0004//document.getElementById('freesnailspend')
+    weitospend=web3.toWei(ethtospenddoc,'ether')
+    HatchEggs(weitospend,function(){
+        displayTransactionMessage();
+    });
 }
 
 function liveUpdateEggs(){
@@ -164,7 +168,7 @@ function updateSquirrelReq(){
 function updateTadpoleReq(){
     var tadpolereqdoc=document.getElementById('tadpolereq')
 	tadpoleReq(function(req) {
-		tadpolereqdoc.textContent = translateQuantity(req, 0);
+		tadpolereqdoc.textContent = formatEthValue(web3.fromWei(req,'ether'));
 	});
 }
 
