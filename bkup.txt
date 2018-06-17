@@ -1,0 +1,1 @@
+Check <a href="https://etherscan.io/address/0xdc078ff399d0001c31454e83896e8881d164fb95#readContract">etherscan</a> to know the current amount required (6. getSnailmasterReq)<span id="currentsnailmaster"></span>
