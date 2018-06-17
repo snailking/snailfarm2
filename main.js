@@ -149,7 +149,7 @@ function updateSnailmasterReq(){
 
 function updateSpiderReq(){
     var spiderpricedoc=document.getElementById('spiderreq')
-	spiderReq(function(req) {
+	spiderqueenReq(function(req) { // CHANGE TO spiderReq FOR MAINNET
 		spiderreqdoc.textContent = translateQuantity(req, 0);
 	});
 }
