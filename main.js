@@ -189,7 +189,7 @@ function updateTotalAcorns(){
 	});
 }
 
-function updatePercentAcorn(){
+function updatePercentAcorns(){
 	var percentacornsdoc = document.getElementById('percentacorns');
 	percentacornsdoc.textContent = playeracornsdoc.textContent / totalacornsdoc.textContent;
 }
@@ -204,6 +204,7 @@ function updateAcornPriceSell(){
     });
 }
 */
+
 function updateSnailPot(){
     var snailpotdoc=document.getElementById('snailpot')
 	snailPot(function(req) {
