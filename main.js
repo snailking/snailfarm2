@@ -207,14 +207,14 @@ function updateAcornPriceSell(){
 function updateSnailPot(){
     var snailpotdoc=document.getElementById('snailpot')
 	snailPot(function(req) {
-		snailpotdoc.textContent = formatEthValue(web3.fromWei(req,'ether');
+		snailpotdoc.textContent = formatEthValue(web3.fromWei(req,'ether'));
 	});
 }
 
 function updateTreePot(){
     var treepotdoc=document.getElementById('treepot')
 	treePot(function(req) {
-		treepotdoc.textContent = formatEthValue(web3.fromWei(req,'ether');
+		treepotdoc.textContent = formatEthValue(web3.fromWei(req,'ether'));
 	});
 }
 
