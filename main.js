@@ -168,14 +168,14 @@ function updateAcornPriceBuy(){
     var acornstobuydoc = document.getElementById('acornstobuy')
     var ethtobuyacorndoc=document.getElementById('ethtobuyacorn')
 	var currentacornprice = acornprice;
-	acornstobuydoc.textContent = currentacornprice * ethtobuyacorndoc;
+	acornstobuydoc.textContent = currentacornprice * 23// ethtobuyacorndoc;
     }
 
 function updateAcornPriceSell(){
     var ethforacornsdoc=document.getElementById('ethforacorns')
     var acornstoselldoc=document.getElementById('acornstosell')
     var currentacornprice = acornprice; //web3.fromWei(ComputeAcornPrice(),'ether')
-    ethforacornsdoc.textContent = currentacornprice * acornstoselldoc;
+    ethforacornsdoc.textContent = 48/*currentacornprice*/ * acornstoselldoc;
     }
 
 function updateAcorns(){
@@ -188,7 +188,7 @@ function updateAcorns(){
 	totalAcorns(function(req) {
 		totalacornsdoc.textContent = translateQuantity(req, 0);
 	});
-	var acornratio = playeracornsdoc / totalacornsdoc;
+	var acornratio = 0.83;//playeracornsdoc / totalacornsdoc;
 	percentacornsdoc.textContent = acornratio * 100;
 	acornprice = acornratio * treepot;
 }
