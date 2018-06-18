@@ -165,7 +165,7 @@ var acornprice = 1;
 
 function updateAcornPriceBuy(){
     var acornstobuydoc = document.getElementById('acornstobuy')
-    var ethtobuyacornsdoc=document.getElementById('ethtobuyacorns')
+    var ethtobuyacorndoc=document.getElementById('ethtobuyacorn')
 	var currentacornprice = acornprice;
 	acornstobuydoc.textContent = currentacornprice * ethtobuyacornsdoc.textContent;
     }
