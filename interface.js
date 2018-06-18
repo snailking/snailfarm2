@@ -1214,7 +1214,7 @@ function BecomeTadpolePrince(eth, callback){
         }
     });
 }
-
+/*
 function ComputeAcornPrice(callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
@@ -1230,7 +1230,7 @@ function ComputeAcornPrice(callback){
         }
     });
 }
-
+*/
 function ComputeSell(eggs, callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);

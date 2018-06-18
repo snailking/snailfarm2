@@ -85,9 +85,7 @@ function refreshData(){
 	updateSpiderReq();
 	updateSquirrelReq();
 	updateTadpoleReq();
-	updatePlayerAcorns();
-	updateTotalAcorns();
-	updatePercentAcorns();
+	updateAcorns();
 	//updateCurrentSnailmaster()
 	//updateCurrentSpider()
 	//updateCurrentSquirrel()
@@ -161,38 +159,37 @@ function updateAcornPriceBuy(){
     });
 }
 */
+
+var acornprice = 1;
+
 function updateAcornPriceBuy(){
     var acornstobuydoc = document.getElementById('acornstobuy')
     var ethtobuyacornsdoc=document.getElementById('ethtobuyacorns')
-	var currentacornprice = web3.fromWei(ComputeAcornPrice(),'ether')
+	var currentacornprice = acornprice;
 	acornstobuydoc.textContent = currentacornprice * ethtobuyacornsdoc.textContent;
     }
 
 function updateAcornPriceSell(){
     var ethforacornsdoc=document.getElementById('ethforacorns')
     var acornstoselldoc=document.getElementById('acornstosell')
-    var currentacornprice = web3.fromWei(ComputeAcornPrice(),'ether')
+    var currentacornprice = acornprice; //web3.fromWei(ComputeAcornPrice(),'ether')
     ethforacornsdoc.textContent = currentacornprice * acornstoselldoc.textContent;
     }
 
-function updatePlayerAcorns(){
-	var playeracornsdoc=document.getElementById('playeracorns')
+function updateAcorns(){
+	var playeracornsdoc=document.getElementById('playeracorns');
+	var totalacornsdoc=document.getElementById('totalacorns');
+	var percentacornsdoc = document.getElementById('percentacorns');
 	GetMyAcorn(function(req) {
 		playeracornsdoc.textContent = translateQuantity(req, 0);
 	});
-}
-
-function updateTotalAcorns(){
-	var totalacornsdoc=document.getElementById('totalacorns')
 	totalAcorns(function(req) {
 		totalacornsdoc.textContent = translateQuantity(req, 0);
 	});
+	acornprice = playeracornsdoc.textContent / totalacornsdoc.textContent;
+	percentacornsdoc.textContent = acornprice;
 }
 
-function updatePercentAcorns(){
-	var percentacornsdoc = document.getElementById('percentacorns');
-	percentacornsdoc.textContent = playeracornsdoc.textContent / totalacornsdoc.textContent;
-}
 /*
 function updateAcornPriceSell(){
     var ethforacornsdoc=document.getElementById('ethforacorns')
