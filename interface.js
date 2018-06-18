@@ -1622,6 +1622,26 @@ function GetMyEgg(callback){
     });
 }
 
+function GetMyEarning(callback){
+    var contractAbi = web3.eth.contract(abi);
+    var myContract = contractAbi.at(contractAddress);
+    var outputData = myContract.GetMyEarning.getData();
+    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
+    function(error,result){
+        if(!error){
+            console.log('GetMyEarning ',web3.toDecimal(result));
+            if(result=='0x'){
+                result=0
+            }
+            callback(web3.toDecimal(result))
+        }
+        else{
+            console.log('error :(')
+        }
+    });
+}
+
+
 function hatcherySnail(callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
