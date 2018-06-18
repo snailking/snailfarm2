@@ -79,7 +79,8 @@ function refreshData(){
     updateSellPrice();
 	updateSnailPot();
 	updateTreePot();
-	updateAcornPrice();
+	updateAcornPriceBuy();
+	updateAcornPriceSell();
 	updateSnailmasterReq();
 	updateSpiderReq();
 	updateSquirrelReq();
@@ -206,14 +207,14 @@ function updateAcornPriceSell(){
 function updateSnailPot(){
     var snailpotdoc=document.getElementById('snailpot')
 	snailPot(function(req) {
-		snailpotdoc.textContent = translateQuantity(req, 0);
+		snailpotdoc.textContent = formatEthValue(web3.fromWei(req,'ether');
 	});
 }
 
 function updateTreePot(){
     var treepotdoc=document.getElementById('treepot')
 	treePot(function(req) {
-		treepotdoc.textContent = translateQuantity(req, 0);
+		treepotdoc.textContent = formatEthValue(web3.fromWei(req,'ether');
 	});
 }
 
