@@ -163,12 +163,14 @@ function updateAcornPriceBuy(){
 
 var treepot = 314;
 var acornprice = 1;
+var playerratio = 1;
+var totalratio = 1;
 
 function updateAcornPriceBuy(){
     var acornstobuydoc = document.getElementById('acornstobuy')
     var ethtobuyacorndoc = document.getElementById('ethtobuyacorn')
 	var currentacornprice = acornprice;
-	acornstobuydoc.textContent = currentacornprice * ethtobuyacorndoc.value;
+	acornstobuydoc.textContent = ethtobuyacorndoc.value / currentacornprice;
     }
 
 function updateAcornPriceSell(){
@@ -179,8 +181,7 @@ function updateAcornPriceSell(){
     }
 
 function updateAcorns(){
-	var playerratio = 1;
-	var totalratio = 1;
+
 	var playeracornsdoc = document.getElementById('playeracorns');
 	var totalacornsdoc = document.getElementById('totalacorns');
 	var percentacornsdoc = document.getElementById('percentacorns');
