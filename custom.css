@@ -1,9 +1,9 @@
 
 .altcolor{
-    background-color:#CCCC00;
-    border-radius:15px;
-    margin-top:20px;
-    padding:20px;
+    background-color:#c5d6c0;
+    border-radius:10px;
+    margin-top:10px;
+    padding:10px;
 	border-image: url("snailpattern.jpg");
 }
 .form-control {
