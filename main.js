@@ -171,7 +171,7 @@ function updateAcornPriceBuy(){
 	ComputeAcornPrice(function(req) {
 		currentacornprice = translateQuantity(req, 0);
 		acornstobuydoc.textContent = ethtobuyacorndoc.value / currentacornprice;
-	}
+	});
 }
 
 function updateAcornPriceSell(){
@@ -180,7 +180,7 @@ function updateAcornPriceSell(){
 	ComputeAcornPrice(function(req) {
 		currentacornprice = translateQuantity(req, 0); //web3.fromWei(ComputeAcornPrice(),'ether')
 		ethforacornsdoc.textContent = currentacornprice * acornstoselldoc.value;
-    }
+    });
 }
 
 function updateAcorns(){
