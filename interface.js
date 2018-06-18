@@ -1638,6 +1638,22 @@ function hatcherySnail(callback){
     });
 }
 
+function totalAcorns(callback){
+    var contractAbi = web3.eth.contract(abi);
+    var myContract = contractAbi.at(contractAddress);
+    var outputData = myContract.totalAcorns.getData();
+    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
+    function(error,result){
+        if(!error){
+            console.log('totalAcorns ',web3.toDecimal(result));
+            callback(web3.toDecimal(result))
+        }
+        else{
+            console.log('error :(')
+        }
+    });
+}
+
 function lastHatch(address,callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
