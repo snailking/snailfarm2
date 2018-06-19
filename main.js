@@ -227,7 +227,7 @@ function updateAcorns(){
 		numtotalacorns = translateQuantity(req, 0);
 		totalacornsdoc.textContent = numtotalacorns;
 	});
-	var acornratio = playeracornsdoc / totalacornsdoc;// numplayeracorns / numtotalacorns ;
+	var acornratio = playeracornsdoc.textContent / totalacornsdoc.textContent ;// numplayeracorns / numtotalacorns ;
 	percentacornsdoc.textContent = acornratio * 100;
 	//acornprice = acornratio * treepot;
 }
