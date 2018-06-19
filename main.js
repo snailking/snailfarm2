@@ -220,14 +220,14 @@ function updateAcorns(){
 	var totalacornsdoc = document.getElementById('totalacorns');
 	var percentacornsdoc = document.getElementById('percentacorns');
 	GetMyAcorn(function(req) {
-		numplayeracorns = translateQuantity(req, 0);
+		numplayeracorns = req;
 		playeracornsdoc.textContent = numplayeracorns;
 	});
 	totalAcorns(function(req) {
 		numtotalacorns = translateQuantity(req, 0);
 		totalacornsdoc.textContent = numtotalacorns;
 	});
-	var acornratio = numplayeracorns / numtotalacorns ;
+	var acornratio = playeracornsdoc / totalacornsdoc;// numplayeracorns / numtotalacorns ;
 	percentacornsdoc.textContent = acornratio * 100;
 	//acornprice = acornratio * treepot;
 }
