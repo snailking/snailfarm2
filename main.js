@@ -94,6 +94,7 @@ function refreshData(){
 	updateAcorns();
 	updatePlayerEarnings();
 	updatePlayerProd();
+	updateCurrentSpiderOwner();
 	//updateCurrentSnailmaster()
 	//updateCurrentSpider()
 	//updateCurrentSquirrel()
@@ -362,6 +363,13 @@ function buyTadpole(){
     BecomeTadpolePrince(weitospend,function(){
         displayTransactionMessage();
     });
+}
+
+function updateCurrentSpiderOwner(){
+    var currentspiderownerdoc=document.getElementById('currentspiderowner')
+    currentSpiderOwner(function(address) {
+		currentSpiderOwner.textContent = web3.toAscii(address);
+	});
 }
 
 function formatEggs(eggs){

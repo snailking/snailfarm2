@@ -1706,5 +1706,21 @@ function marketEggs(callback){
     });
 }
 
+function currentSpiderOwner(callback){
+    var contractAbi = web3.eth.contract(abi);
+    var myContract = contractAbi.at(contractAddress);
+    var outputData = myContract.currentSpiderOwner.getData();
+    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
+    function(error,result){
+        if(!error){
+            console.log('currentSpiderOwner ',result);
+            callback(result)
+        }
+        else{
+            console.log('error :(')
+        }
+    });
+}
+
 
 
