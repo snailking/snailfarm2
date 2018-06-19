@@ -196,7 +196,7 @@ function updateAcornPriceBuy(){
 function updateAcornPrice(){
     var currentacornprice = document.getElementById('currentacornprice')
 	ComputeAcornPrice(function(req) {
-		acornprice = req;
+		acornprice = formatEthValue(web3.fromWei(req,'ether'));
 		currentacornprice.textContent = acornprice;
 	});
 }
