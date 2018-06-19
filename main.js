@@ -8,6 +8,9 @@ var eggstohatch1=864
 var lastUpdate=new Date().getTime()
 var snailpot;
 var previoussnailpot;
+var acornprice;
+var numplayeracorns;
+var numtotalacorns;
 
 function main(){
     console.log('test')
@@ -81,6 +84,7 @@ function refreshData(){
 	updateSnailPot();
 	updateCurrentVsPrevious();
 	updateTreePot();
+	updateAcornPrice();
 	updateAcornPriceBuy();
 	updateAcornPriceSell();
 	updateSnailmasterReq();
@@ -104,7 +108,7 @@ function refreshData(){
 function updateRound(){
 	var rounddoc = document.getElementById('round')
 	round(function(req) {
-		rounddoc.textContent = translateQuantity(req, 0);
+		rounddoc.textContent = req;//translateQuantity(req, 0);
 	});
 }
 
@@ -119,9 +123,9 @@ function updatePreviousSnailPot(){
 function updateCurrentVsPrevious(){
 	var cheapacornsdoc = document.getElementById('cheapacorns');
 	if(snailpot < previoussnailpot) {
-		cheapacornsdoc.textContent = 'Acorns are currently on sale (3 for the price of 2)';
+		cheapacornsdoc.textContent = 'The ethertree grows. Acorns are currently on sale.';
 	} else {
-		cheapacornsdoc.textContent = '';
+		cheapacornsdoc.textContent = 'The ethertree rests. Acorns are at their normal price.';
 	}
 }
 
@@ -188,8 +192,6 @@ function updateAcornPriceBuy(){
 }
 */
 
-//var treepot = 314;
-var acornprice = 1;
 
 function updateAcornPrice(){
     //var currentacornprice = document.getElementById('currentacornprice')
@@ -212,20 +214,18 @@ function updateAcornPriceSell(){
 	ethforacornsdoc.textContent = currentacornprice * acornstoselldoc.value;
 }
 
-var playerratio = 1;
-var totalratio = 1;
 
 function updateAcorns(){
 	var playeracornsdoc = document.getElementById('playeracorns');
 	var totalacornsdoc = document.getElementById('totalacorns');
 	var percentacornsdoc = document.getElementById('percentacorns');
 	GetMyAcorn(function(req) {
-		playerratio = translateQuantity(req, 0);
-		playeracornsdoc.textContent = playerratio;
+		numplayeracorns = translateQuantity(req, 0);
+		playeracornsdoc.textContent = numplayeracorns;
 	});
 	totalAcorns(function(req) {
-		totalratio = translateQuantity(req, 0);
-		totalacornsdoc.textContent = totalratio;
+		numtotalacorns = translateQuantity(req, 0);
+		totalacornsdoc.textContent = numtotalacorns;
 	});
 	var acornratio = playerratio / totalratio ;
 	percentacornsdoc.textContent = acornratio * 100;
@@ -323,6 +323,14 @@ function buyEggs2(){
     var ethtospenddoc=document.getElementById('ethtospend')
     weitospend=web3.toWei(ethtospenddoc.value,'ether')
     BuyEggs(weitospend,function(){
+        displayTransactionMessage();
+    });
+}
+
+function buyPrince(){
+    var tadpolepotatodoc=document.getElementById('tadpolepotato')
+    weitospend=web3.toWei(tadpolepotatodoc.value,'ether')
+    BecomeTadpolePrince(weitospend,function(){
         displayTransactionMessage();
     });
 }
