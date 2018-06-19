@@ -369,7 +369,7 @@ function updateCurrentSpiderOwner(){
     var currentspiderownerdoc = document.getElementById('currentspiderowner')
     currentSpiderOwner(function(address) {
 		//currentspiderownerdoc.textContent = address;
-		currentspiderownerdoc.textContent = address.substring(12, 52);		
+		currentspiderownerdoc.textContent = address.substring(24, 64);		
 	});
 }
 
