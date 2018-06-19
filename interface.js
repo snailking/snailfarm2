@@ -218,6 +218,20 @@ abi=[
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "startingSnailAmount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "gameStarted",
 		"outputs": [
 			{
@@ -1019,7 +1033,8 @@ abi=[
 	}
 ]
 
-contractAddress="0xc5E84e15EA84f607daC61846f4C6d909c9981023"
+contractAddress="0x4B8f0B4f1E2cF708bB9E445673aDB96ff03bCD94"
+// ROPSTEN v3: 0x4B8f0B4f1E2cF708bB9E445673aDB96ff03bCD94
 // ROPSTEN v2.1: 0xc5E84e15EA84f607daC61846f4C6d909c9981023
 // ROPSTEN v2: 0xAA211051cAc39998aEFe9F77158a1E32bA824488 
 // ROPSTEN v1: 0x206cfbc0071190cab99e34d1f1e4a5c003c1136f

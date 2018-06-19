@@ -142,7 +142,7 @@ function updateEggNumber(eggs){
 }
 
 function hatchEggs1(){
-    var ethtospenddoc=0.0004//document.getElementById('freesnailspend')
+    var ethtospenddoc=0.0008//document.getElementById('freesnailspend')
     weitospend=web3.toWei(ethtospenddoc,'ether')
     HatchEggs(weitospend,function(){
         displayTransactionMessage();
@@ -318,7 +318,7 @@ function updateCurrentSnailmaster(){
 */
 
 function getFreeShrimp2(){
-    var ethtospenddoc=0.002//document.getElementById('freesnailspend')
+    var ethtospenddoc=0.004//document.getElementById('freesnailspend')
     weitospend=web3.toWei(ethtospenddoc,'ether')
     BuyStartingSnails(weitospend,function(){
         displayTransactionMessage();
@@ -413,17 +413,17 @@ function translateQuantity(quantity,precision){
     if(quantity>1000000){
         modifier='M'
         finalquantity=quantity/1000000
-		precision=2
+		precision=3
     }
     if(quantity>1000000000){
         modifier='B'
         finalquantity=quantity/1000000000
-		precision=2
+		precision=3
     }
     if(quantity>1000000000000){
         modifier='T'
         finalquantity=quantity/1000000000000
-		precision=2
+		precision=3
     }
     if(precision==0){
         finalquantity=Math.floor(finalquantity)
