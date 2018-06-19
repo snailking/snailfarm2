@@ -185,9 +185,11 @@ function updateAcornPriceSell(){
 	ethforacornsdoc.textContent = currentacornprice * acornstoselldoc.value;
 }
 
-function updateAcorns(){
 	var playerratio = 1;
 	var totalratio = 1;
+
+function updateAcorns(){
+
 	var playeracornsdoc = document.getElementById('playeracorns');
 	var totalacornsdoc = document.getElementById('totalacorns');
 	var percentacornsdoc = document.getElementById('percentacorns');
@@ -199,7 +201,7 @@ function updateAcorns(){
 		totalratio = translateQuantity(req, 0);
 		totalacornsdoc.textContent = totalratio;
 	});
-	var acornratio = playeracornsdoc.textContent / totalacornsdoc.textContent ;
+	var acornratio = playerratio / totalratio ;
 	percentacornsdoc.textContent = acornratio * 100;
 	//acornprice = acornratio * treepot;
 }
