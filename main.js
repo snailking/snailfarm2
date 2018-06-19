@@ -84,7 +84,7 @@ function refreshData(){
 	updateSnailPot();
 	updateCurrentVsPrevious();
 	updateTreePot();
-	updateAcornPrice();
+	//updateAcornPrice();
 	updateAcornPriceBuy();
 	updateAcornPriceSell();
 	updateSnailmasterReq();
@@ -192,7 +192,7 @@ function updateAcornPriceBuy(){
 }
 */
 
-
+/*
 function updateAcornPrice(){
     var currentacornprice = document.getElementById('currentacornprice')
 	ComputeAcornPrice(function(req) {
@@ -200,7 +200,7 @@ function updateAcornPrice(){
 		currentacornprice.textContent = acornprice;
 	});
 }
-
+*/
 function updateAcornPriceBuy(){
     var acornstobuydoc = document.getElementById('acornstobuy')
     var ethtobuyacorndoc = document.getElementById('ethtobuyacorn')
@@ -230,7 +230,7 @@ function updateAcorns(){
 	});
 	var acornratio = playeracornsdoc.textContent / totalacornsdoc.textContent ;// numplayeracorns / numtotalacorns ;
 	percentacornsdoc.textContent = acornratio * 100;
-	//acornprice = acornratio * treepot;
+	acornprice = acornratio * treepot;
 }
 
 /*
