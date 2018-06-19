@@ -161,15 +161,21 @@ function updateAcornPriceBuy(){
 }
 */
 
-var treepot = 314;
+//var treepot = 314;
 var acornprice = 1;
 
+function updateAcornPrice(){
+    //var currentacornprice = document.getElementById('currentacornprice')
+	ComputeAcornPrice(function(req) {
+		acornprice.textContent = translateQuantity(req, 0);
+	});
+}
 
 function updateAcornPriceBuy(){
     var acornstobuydoc = document.getElementById('acornstobuy')
     var ethtobuyacorndoc = document.getElementById('ethtobuyacorn')
 	var currentacornprice = acornprice;
-	acornstobuydoc.textContent = ethtobuyacorndoc.value / currentacornprice;
+	acornstobuydoc.textContent = (ethtobuyacorndoc.value / currentacornprice) / 2;
 }
 
 function updateAcornPriceSell(){
@@ -195,7 +201,7 @@ function updateAcorns(){
 	});
 	var acornratio = playerratio / totalratio ;
 	percentacornsdoc.textContent = acornratio * 100;
-	acornprice = acornratio * treepot;
+	//acornprice = acornratio * treepot;
 }
 
 /*
