@@ -186,20 +186,20 @@ function updateAcornPriceSell(){
 }
 
 function updateAcorns(){
-	//var playerratio = 1;
-	//var totalratio = 1;
+	var playerratio = 1;
+	var totalratio = 1;
 	var playeracornsdoc = document.getElementById('playeracorns');
 	var totalacornsdoc = document.getElementById('totalacorns');
 	var percentacornsdoc = document.getElementById('percentacorns');
 	GetMyAcorn(function(req) {
-		var playerratio = translateQuantity(req, 0);
+		playerratio = translateQuantity(req, 0);
 		playeracornsdoc.textContent = playerratio;
 	});
 	totalAcorns(function(req) {
-		var totalratio = translateQuantity(req, 0);
+		totalratio = translateQuantity(req, 0);
 		totalacornsdoc.textContent = totalratio;
 	});
-	var acornratio = playerratio / totalratio ;
+	var acornratio = playeracornsdoc.textContent / totalacornsdoc.textContent ;
 	percentacornsdoc.textContent = acornratio * 100;
 	//acornprice = acornratio * treepot;
 }
