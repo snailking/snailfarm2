@@ -1,10 +1,23 @@
 
 abi=[
-	
 	{
 		"constant": true,
 		"inputs": [],
 		"name": "ComputeMyEggs",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "SPIDER_BASE_REQ",
 		"outputs": [
 			{
 				"name": "",
@@ -205,20 +218,6 @@ abi=[
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "SPIDERQUEEN_BASE_REQ",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
 		"name": "gameStarted",
 		"outputs": [
 			{
@@ -365,20 +364,6 @@ abi=[
 		"constant": true,
 		"inputs": [],
 		"name": "HATCHING_COST",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "spiderqueenReq",
 		"outputs": [
 			{
 				"name": "",
@@ -607,6 +592,20 @@ abi=[
 		"constant": true,
 		"inputs": [],
 		"name": "totalAcorns",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "spiderReq",
 		"outputs": [
 			{
 				"name": "",
@@ -1020,7 +1019,8 @@ abi=[
 	}
 ]
 
-contractAddress="0x206cfbc0071190cab99e34d1f1e4a5c003c1136f" 
+contractAddress="0xAA211051cAc39998aEFe9F77158a1E32bA824488"
+// ROPSTEN v2: 0xAA211051cAc39998aEFe9F77158a1E32bA824488 
 // ROPSTEN v1: 0x206cfbc0071190cab99e34d1f1e4a5c003c1136f
 
 function SeedMarket(eggs, acorns, eth, callback){
@@ -1263,78 +1263,6 @@ function ComputeBuy(eth, callback){
     });
 }
 
-/*
-function calculateEggBuy(eth,contractBalance,callback){
-    var contractAbi = web3.eth.contract(abi);
-    var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.calculateEggBuy.getData(eth,contractBalance);
-    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
-    function(error,result){
-        if(!error){
-            console.log('calculateEggBuy ',web3.toDecimal(result));
-            callback(web3.toDecimal(result))
-        }
-        else{
-            console.log('error :(')
-        }
-    });
-}
-
-
-function calculateEggBuySimple(eth,callback){
-    var contractAbi = web3.eth.contract(abi);
-    var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.calculateEggBuySimple.getData(eth);
-    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
-    function(error,result){
-        if(!error){
-            console.log('calculateEggBuySimple ',web3.toDecimal(result));
-            callback(web3.toDecimal(result))
-        }
-        else{
-            console.log('error :(')
-        }
-    });
-}
-
-
-function calculateEggSell(eggs,callback){
-    var contractAbi = web3.eth.contract(abi);
-    var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.calculateEggSell.getData(eggs);
-    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
-    function(error,result){
-        if(!error){
-            console.log('calculateEggSell ',result);
-            if(result=='0x'){
-                result=0
-            }
-            callback(web3.toDecimal(result))
-        }
-        else{
-            console.log('error :(')
-        }
-    });
-}
-
-
-function calculateTrade(rt,rs,bs,callback){
-    var contractAbi = web3.eth.contract(abi);
-    var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.calculateTrade.getData(rt,rs,bs);
-    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
-    function(error,result){
-        if(!error){
-            console.log('calculateTrade ',web3.toDecimal(result));
-            callback(web3.toDecimal(result))
-        }
-        else{
-            console.log('error :(')
-        }
-    });
-}
-*/
-
 function snailmasterReq(callback){
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
@@ -1351,14 +1279,14 @@ function snailmasterReq(callback){
     });
 }
 
-function spiderqueenReq(callback){ // CHANGE TO spiderReq FOR MAINNET
+function spiderReq(callback){ 
     var contractAbi = web3.eth.contract(abi);
     var myContract = contractAbi.at(contractAddress);
-    var outputData = myContract.spiderqueenReq.getData(); // CHANGE TO spiderReq FOR MAINNET
+    var outputData = myContract.spiderReq.getData(); 
     var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
     function(error,result){
         if(!error){
-            console.log('spiderqueenReq ',web3.toDecimal(result)); // CHANGE TO spiderReq FOR MAINNET
+            console.log('spiderReq ',web3.toDecimal(result));
             callback(web3.toDecimal(result))
         }
         else{

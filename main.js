@@ -287,7 +287,7 @@ function updateSnailmasterReq(){
 
 function updateSpiderReq(){
     var spiderreqdoc=document.getElementById('spiderreq')
-	spiderqueenReq(function(req) { // CHANGE TO spiderReq FOR MAINNET
+	spiderReq(function(req) {
 		spiderreqdoc.textContent = translateQuantity(req, 0);
 	});
 }
