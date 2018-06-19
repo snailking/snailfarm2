@@ -368,7 +368,7 @@ function buyTadpole(){
 function updateCurrentSpiderOwner(){
     var currentspiderownerdoc = document.getElementById('currentspiderowner')
     currentSpiderOwner(function(address) {
-		currentspiderownerdoc.textContent = web3.toAscii(address);
+		currentspiderownerdoc.textContent = address;
 	});
 }
 
