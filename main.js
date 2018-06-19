@@ -185,11 +185,10 @@ function updateAcornPriceSell(){
 	ethforacornsdoc.textContent = currentacornprice * acornstoselldoc.value;
 }
 
-	var playerratio = 1;
-	var totalratio = 1;
+var playerratio = 1;
+var totalratio = 1;
 
 function updateAcorns(){
-
 	var playeracornsdoc = document.getElementById('playeracorns');
 	var totalacornsdoc = document.getElementById('totalacorns');
 	var percentacornsdoc = document.getElementById('percentacorns');
