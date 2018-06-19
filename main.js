@@ -216,14 +216,14 @@ function updateAcornPriceSell(){
     var ethforacornsdoc = document.getElementById('ethforacorns')
     var acornstoselldoc = document.getElementById('acornstosell')
 	var currentacornprice = acornprice;
-	ethforacornsdoc.textContent = currentacornprice * acornstoselldoc.value;
+	ethforacornsdoc.textContent = translateQuantity((currentacornprice * acornstoselldoc.value), 0);
 }
 
 
 function updateAcorns(){
 	var playeracornsdoc = document.getElementById('playeracorns');
 	var totalacornsdoc = document.getElementById('totalacorns');
-	var percentacornsdoc = document.getElementById('percentacorns');
+	//var percentacornsdoc = document.getElementById('percentacorns');
 	GetMyAcorn(function(req) {
 		numplayeracorns = req;
 		playeracornsdoc.textContent = numplayeracorns;
@@ -233,7 +233,7 @@ function updateAcorns(){
 		totalacornsdoc.textContent = numtotalacorns;
 	});
 	var acornratio = playeracornsdoc.value / totalacornsdoc.value ;// numplayeracorns / numtotalacorns ;
-	percentacornsdoc.textContent = acornratio * 100;
+	//percentacornsdoc.textContent = acornratio * 100;
 	acornprice = treepot / numtotalacorns ;
 }
 
