@@ -168,19 +168,13 @@ var acornprice = 1;
 function updateAcornPriceBuy(){
     var acornstobuydoc = document.getElementById('acornstobuy')
     var ethtobuyacorndoc = document.getElementById('ethtobuyacorn')
-	ComputeAcornPrice(function(req) {
-		currentacornprice = translateQuantity(req, 0);
-		acornstobuydoc.textContent = ethtobuyacorndoc.value / currentacornprice;
-	});
+	acornstobuydoc.textContent = ethtobuyacorndoc.value / acornprice;
 }
 
 function updateAcornPriceSell(){
     var ethforacornsdoc = document.getElementById('ethforacorns')
     var acornstoselldoc = document.getElementById('acornstosell')
-	ComputeAcornPrice(function(req) {
-		currentacornprice = translateQuantity(req, 0); //web3.fromWei(ComputeAcornPrice(),'ether')
-		ethforacornsdoc.textContent = currentacornprice * acornstoselldoc.value;
-    });
+	ethforacornsdoc.textContent = acornprice * acornstoselldoc.value;
 }
 
 function updateAcorns(){
