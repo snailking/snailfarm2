@@ -6,6 +6,8 @@ var lastSecondsUntilFull=100
 lastHatchTime=0
 var eggstohatch1=864
 var lastUpdate=new Date().getTime()
+var snailpot;
+var previoussnailpot;
 
 function main(){
     console.log('test')
@@ -27,13 +29,10 @@ function controlLoopFaster(){
 }
 
 function refreshData(){
-    var sellsforexampledoc=document.getElementById('sellsforexample')
+    var marketeggsdoc=document.getElementById('marketeggs')
     marketEggs(function(eggs){
-        eggs=eggs/10
-        ComputeSell(eggs,function(wei){
-                console.log('examplesellprice ',wei)
-                sellsforexampledoc.textContent='('+formatEggs(eggs)+' eggs would sell for '+formatEthValue(web3.fromWei(wei,'ether'))+')'
-        });
+        eggs=eggs
+        marketeggsdoc.textContent = formatEggs(eggs);
     });
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
@@ -75,9 +74,12 @@ function refreshData(){
         var productiondoc=document.getElementById('production')
         productiondoc.textContent=formatEggs(lastNumShrimp*60*60)
     });
+	updateRound();
     updateBuyPrice();
     updateSellPrice();
+	updatePreviousSnailPot();
 	updateSnailPot();
+	updateCurrentVsPrevious();
 	updateTreePot();
 	updateAcornPriceBuy();
 	updateAcornPriceSell();
@@ -87,6 +89,7 @@ function refreshData(){
 	updateTadpoleReq();
 	updateAcorns();
 	updatePlayerEarnings();
+	updatePlayerProd();
 	//updateCurrentSnailmaster()
 	//updateCurrentSpider()
 	//updateCurrentSquirrel()
@@ -96,6 +99,30 @@ function refreshData(){
 	//var copyText = document.getElementById("copytextthing"); 
 	//copyText.value = prldoc.textContent;
 
+}
+
+function updateRound(){
+	var rounddoc = document.getElementById('round')
+	round(function(req) {
+		rounddoc.textContent = translateQuantity(req, 0);
+	});
+}
+
+function updatePreviousSnailPot(){
+    var previoussnailpotdoc=document.getElementById('previoussnailpot')
+	previousSnailPot(function(req) {
+		previoussnailpot = formatEthValue(web3.fromWei(req,'ether'));
+		previoussnailpotdoc.textContent = previoussnailpot;
+	});
+}
+
+function updateCurrentVsPrevious(){
+	var cheapacornsdoc = document.getElementById('cheapacorns');
+	if(snailpot < previoussnailpot) {
+		cheapacornsdoc.textContent = 'Acorns are currently on sale (3 for the price of 2)';
+	} else {
+		cheapacornsdoc.textContent = '';
+	}
 }
 
 function updateEggNumber(eggs){
@@ -167,7 +194,7 @@ var acornprice = 1;
 function updateAcornPrice(){
     //var currentacornprice = document.getElementById('currentacornprice')
 	ComputeAcornPrice(function(req) {
-		acornprice.textContent = translateQuantity(req, 0);
+		acornprice = translateQuantity(req, 0);
 	});
 }
 
@@ -217,6 +244,13 @@ function updateAcornPriceSell(){
 }
 */
 
+function updatePlayerProd(){
+	var playerproddoc = document.getElementById('playerprod')
+	GetMyProd(function(req) {
+		playerproddoc.textContent = translateQuantity(req, 0);
+	});
+}
+
 function updatePlayerEarnings(){
 	var numearningsdoc = document.getElementById('numearnings')
 	GetMyEarning(function(req) {
@@ -227,7 +261,8 @@ function updatePlayerEarnings(){
 function updateSnailPot(){
     var snailpotdoc=document.getElementById('snailpot')
 	snailPot(function(req) {
-		snailpotdoc.textContent = formatEthValue(web3.fromWei(req,'ether'));
+		snailpot = formatEthValue(web3.fromWei(req,'ether'));
+		snailpotdoc.textContent = snailpot;
 	});
 }
 
