@@ -90,7 +90,27 @@
 					<br><h4>To claim half of the snailpot, become the snailmaster.</h4>
                 </div>
               </div>
-          </div>  
+          </div>
+		<div class="container altcolor">
+            <div class="row">
+                <div class="col-md-4" ><img src="metamask.png" width="120" height="120" alt="Shrimp">
+                </div>
+                <div class="col-md-8">
+                    <h2>Your Earnings: <br><span id="numearnings">?</span> ETH</h2>
+                </div>
+            </div>
+            <br>
+				
+            <div class="row">   
+				<div class="col-md-4">
+				</div>
+                <div class="col-md-8"><p><a class="btn btn-lg btn-success" onclick="WithdrawEarnings(displayTransactionMessage)" role="button">Withdraw to your Wallet</a></p>
+				</div>
+            </div>
+	  
+		</div>
+	</div>
+	<div class="jumbotron">
           <div class="container altcolor">
               <div class="row">
                 <div class="col-md-4">
@@ -98,13 +118,13 @@
                     
                     </div>
                 <div class="col-md-6">
-                    <h2><span class="numshrimp">?</span> Snail</h2>
+                    <h2><span class="numshrimp">?</span> Snails</h2>
                     <br>
                     <h3>Producing <span id="production">?</span> eggs per hour</h3>
                 </div>
               </div>
               <div class="row">
-                <p><a id="getfreeshrimp" class="btn btn-lg btn-success invis" onclick="getFreeShrimp2()" role="button">Buy StarterSnails</a></p>
+                <p><a id="getfreeshrimp" class="btn btn-lg btn-success invis" onclick="getFreeShrimp2()" role="button">Buy Starter Snails</a></p>
 		
               </div>
           </div>
@@ -219,6 +239,7 @@
 					<br><input class="form-control" type="number" style="width: 130px" step="0.01" value="tadpolereq" id="tadpolepotato">
                     <h2>Minimum required: <span id="tadpolereq">?</span> ETH</h2>
 					<h4><br>While you own the TadpolePrince, hatching gives you an extra batch of snails. This stacks with other boosts.</h4>
+					<h5>(NOTE: any extra ether spent will be refunded to your Player Earnings balance.)</h5>
 					<h5><br>Current Tadpole Owner: !0x<span id="currenttadpoleowner">?</span></h5>
                 </div>
               </div>
@@ -267,23 +288,7 @@
                 </div>
               </div>
 		</div>		 		
-		<div class="container altcolor">
-              <div class="row">
-                    <div class="col-md-4" ><img src="metamask.png" width="120" height="120" alt="Shrimp">
-                    </div>
-                    <div class="col-md-8">
-                    <h2>Your Earnings: <br><span id="numearnings">?</span> ETH</h2>
-                    </div>
-              </div>
-              <br>
-				
-              <div class="row">   
-					<div class="col-md-4">
-					</div>
-                    <div class="col-md-8"><p><a class="btn btn-lg btn-success" onclick="WithdrawEarnings(displayTransactionMessage)" role="button">Withdraw to your Wallet</a></p></div>
-              </div>
-	  
-	  </div>
+		
 	</div>
      
       <div class="row marketing">

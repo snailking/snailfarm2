@@ -122,10 +122,10 @@ function updatePreviousSnailPot(){
 function updateCurrentVsPrevious(){
 	var cheapacornsdoc = document.getElementById('cheapacorns');
 	if(snailpot < previoussnailpot) {
-		cheapacornsdoc.style.color = "#00cc00";
+		cheapacornsdoc.style.color = '#00cc00';
 		cheapacornsdoc.textContent = 'The ethertree grows! This is a great time to harvest acorns.';
 	} else {
-		cheapacornsdoc.style.color = "#000000";
+		cheapacornsdoc.style.color = '#000000';
 		cheapacornsdoc.textContent = 'The forest is at rest. Acorn cost is standard.';
 	}
 }
