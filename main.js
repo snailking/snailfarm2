@@ -168,13 +168,15 @@ var acornprice = 1;
 function updateAcornPriceBuy(){
     var acornstobuydoc = document.getElementById('acornstobuy')
     var ethtobuyacorndoc = document.getElementById('ethtobuyacorn')
-	acornstobuydoc.textContent = ethtobuyacorndoc.value / acornprice;
+	var currentacornprice = acornprice;
+	acornstobuydoc.textContent = ethtobuyacorndoc.value / currentacornprice;
 }
 
 function updateAcornPriceSell(){
     var ethforacornsdoc = document.getElementById('ethforacorns')
     var acornstoselldoc = document.getElementById('acornstosell')
-	ethforacornsdoc.textContent = acornprice * acornstoselldoc.value;
+	var currentacornprice = acornprice;
+	ethforacornsdoc.textContent = currentacornprice * acornstoselldoc.value;
 }
 
 function updateAcorns(){
