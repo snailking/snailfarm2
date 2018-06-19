@@ -95,10 +95,8 @@ function refreshData(){
 	updatePlayerEarnings();
 	updatePlayerProd();
 	updateCurrentSpiderOwner();
-	//updateCurrentSnailmaster()
-	//updateCurrentSpider()
-	//updateCurrentSquirrel()
-	//updateCurrentTadpole()
+	updateCurrentSquirrelOwner();
+	updateCurrentTadpoleOwner();
     //var prldoc = document.getElementById('playerreflink'); 
 	//prldoc.textContent = window.location.protocol + '//' + window.location.host + window.location.pathname + "?ref=" + web3.eth.accounts[0]; 
 	//var copyText = document.getElementById("copytextthing"); 
