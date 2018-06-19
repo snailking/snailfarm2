@@ -1722,5 +1722,37 @@ function currentSpiderOwner(callback){
     });
 }
 
+function currentSquirrelOwner(callback){
+    var contractAbi = web3.eth.contract(abi);
+    var myContract = contractAbi.at(contractAddress);
+    var outputData = myContract.currentSquirrelOwner.getData();
+    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
+    function(error,result){
+        if(!error){
+            console.log('currentSquirrelOwner ',result);
+            callback(result)
+        }
+        else{
+            console.log('error :(')
+        }
+    });
+}
+
+function currentTadpoleOwner(callback){
+    var contractAbi = web3.eth.contract(abi);
+    var myContract = contractAbi.at(contractAddress);
+    var outputData = myContract.currentTadpoleOwner.getData();
+    var endstr=web3.eth.call({to:contractAddress, from:null, data: outputData},
+    function(error,result){
+        if(!error){
+            console.log('currentTadpoleOwner ',result);
+            callback(result)
+        }
+        else{
+            console.log('error :(')
+        }
+    });
+}
+
 
 

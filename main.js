@@ -368,8 +368,21 @@ function buyTadpole(){
 function updateCurrentSpiderOwner(){
     var currentspiderownerdoc = document.getElementById('currentspiderowner')
     currentSpiderOwner(function(address) {
-		//currentspiderownerdoc.textContent = address;
 		currentspiderownerdoc.textContent = address.substring(26, 66);		
+	});
+}
+
+function updateCurrentSquirrelOwner(){
+    var currentsquirrelownerdoc = document.getElementById('currentsquirrelowner')
+    currentSquirrelOwner(function(address) {
+		currentsquirrelownerdoc.textContent = address.substring(26, 66);		
+	});
+}
+
+function updateCurrentTadpoleOwner(){
+    var currenttadpoleownerdoc = document.getElementById('currenttadpoleowner')
+    currentTadpoleOwner(function(address) {
+		currenttadpoleownerdoc.textContent = address.substring(26, 66);		
 	});
 }
 
