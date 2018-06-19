@@ -216,7 +216,7 @@ function updateAcornPriceSell(){
     var ethforacornsdoc = document.getElementById('ethforacorns')
     var acornstoselldoc = document.getElementById('acornstosell')
 	var currentacornprice = acornprice;
-	ethforacornsdoc.textContent = translateQuantity((currentacornprice * acornstoselldoc.value), 0);
+	ethforacornsdoc.textContent = currentacornprice * acornstoselldoc.value;
 }
 
 
