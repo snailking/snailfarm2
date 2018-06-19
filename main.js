@@ -302,7 +302,7 @@ function updateSquirrelReq(){
 function updateTadpoleReq(){
     var tadpolereqdoc=document.getElementById('tadpolereq')
 	tadpoleReq(function(req) {
-		tadpolereqdoc.textContent = formatEthValue(web3.fromWei(req,'ether'));
+		tadpolereqdoc.textContent = (formatEthValue(web3.fromWei(req,'ether'))).toFixed(4);
 	});
 }
 
