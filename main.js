@@ -194,9 +194,10 @@ function updateAcornPriceBuy(){
 
 
 function updateAcornPrice(){
-    //var currentacornprice = document.getElementById('currentacornprice')
+    var currentacornprice = document.getElementById('currentacornprice')
 	ComputeAcornPrice(function(req) {
 		acornprice = req;
+		currentacornprice.textContent = acornprice;
 	});
 }
 
