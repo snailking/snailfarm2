@@ -196,7 +196,7 @@ function updateAcornPriceBuy(){
 function updateAcornPrice(){
     //var currentacornprice = document.getElementById('currentacornprice')
 	ComputeAcornPrice(function(req) {
-		acornprice = translateQuantity(req, 0);
+		acornprice = req;
 	});
 }
 
@@ -224,8 +224,8 @@ function updateAcorns(){
 		playeracornsdoc.textContent = numplayeracorns;
 	});
 	totalAcorns(function(req) {
-		numtotalacorns = translateQuantity(req, 0);
-		totalacornsdoc.textContent = numtotalacorns;
+		numtotalacorns = req;
+		totalacornsdoc.textContent = translateQuantity(req, 0);
 	});
 	var acornratio = playeracornsdoc.textContent / totalacornsdoc.textContent ;// numplayeracorns / numtotalacorns ;
 	percentacornsdoc.textContent = acornratio * 100;
