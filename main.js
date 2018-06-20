@@ -511,8 +511,8 @@ function enableButtons(){
 }
 
 web3.version.getNetwork((err, netId) => {
-    if(netId!="3"){
-        displayModalMessage("Please switch to Ropsten for testing "+netId)
+    if(netId!="1"){
+        displayModalMessage("Please switch to the Ethereum main network "+netId)
         disableButtons()
     }
     /*
