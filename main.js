@@ -27,16 +27,37 @@ function controlLoop(){
 
 function controlLoopFaster(){
     liveUpdateEggs()
-    console.log('clf')
+    //console.log('clf')
     setTimeout(controlLoopFaster,30)
 }
 
+var logtext = "";
+
+
 function refreshData(){
-    var marketeggsdoc=document.getElementById('marketeggs')
+
+    var marketeggsdoc = document.getElementById('marketeggs');
+	var marketeggslogdoc = document.getElementById('marketeggslog');
+	
     marketEggs(function(eggs){
         eggs=eggs
-        marketeggsdoc.textContent = formatEggs(eggs);
+        marketeggsdoc.textContent = formatEggs(eggs);		
+		logtext += formatEggs(eggs) + " eggs on the market <br/>";
+		marketeggslogdoc.innerHTML = logtext;
     });
+	
+    var snailpotdoc=document.getElementById('snailpot')
+	
+	snailPot(function(req) {
+		snailpot = formatEthValue(web3.fromWei(req,'ether'));
+		snailpotdoc.textContent = snailpot;
+		logtext += snailpot + " ETH snailpot <br/>";
+		marketeggslogdoc.innerHTML = logtext;
+	});
+
+	var logboxscroll = document.getElementById('logboxscroll');
+	logboxscroll.scrollTop = logboxscroll.scrollHeight;
+	
     lastHatch(web3.eth.accounts[0],function(lh){
         lastHatchTime=lh
     });
@@ -52,7 +73,7 @@ function refreshData(){
         }
         var timeuntilfulldoc = document.getElementById('timeuntilfull');
         secondsuntilfull = eggstohatch1 - eggs/lastNumShrimp;
-        console.log('secondsuntilfull ',secondsuntilfull,eggstohatch1,eggs,lastNumShrimp);
+        //console.log('secondsuntilfull ',secondsuntilfull,eggstohatch1,eggs,lastNumShrimp);
         lastSecondsUntilFull=secondsuntilfull;
         timeuntilfulldoc.textContent = secondsToString(secondsuntilfull);
         if(lastNumShrimp==0){
@@ -81,7 +102,7 @@ function refreshData(){
     updateBuyPrice();
     updateSellPrice();
 	updatePreviousSnailPot();
-	updateSnailPot();
+	//updateSnailPot();
 	updateCurrentVsPrevious();
 	updateTreePot();
 	//updateAcornPrice();
@@ -103,6 +124,7 @@ function refreshData(){
 	//copyText.value = prldoc.textContent;
 
 }
+
 
 function updateRound(){
 	var rounddoc = document.getElementById('round')
@@ -166,7 +188,7 @@ function updateSellPrice(){
     //eggstoselldoc.textContent='?'
    ComputeMyEggs(function(eggs){
         ComputeSell(eggs,function(wei){
-               console.log('sellprice ',wei)
+               //console.log('sellprice ',wei)
                eggstoselldoc.textContent=formatEthValue(web3.fromWei(wei,'ether'))
         });
    });
@@ -264,13 +286,7 @@ function updatePlayerEarnings(){
 	});
 }
 
-function updateSnailPot(){
-    var snailpotdoc=document.getElementById('snailpot')
-	snailPot(function(req) {
-		snailpot = formatEthValue(web3.fromWei(req,'ether'));
-		snailpotdoc.textContent = snailpot;
-	});
-}
+
 
 function updateTreePot(){
     var treepotdoc=document.getElementById('treepot')
@@ -304,12 +320,11 @@ function updateSquirrelReq(){
 function updateTadpoleReq(){
     var tadpolereqdoc=document.getElementById('tadpolereq')
 	tadpoleReq(function(req) {
-		var tadpoleRoundUp = web3.fromWei(req,'ether') + 0.0001;
-		tadpoleRoundUp = formatEthValue(tadpoleRoundUp);
-		tadpolereqdoc.textContent = tadpoleRoundUp;
+		var tadpoleRoundUp = formatEthValue(web3.fromWei(req,'ether'));
+		tadpoleRoundUp = tadpoleRoundUp + 0.0001;
+		tadpolereqdoc.textContent = tadpoleRoundUp.toFixed(5);
 	});
 }
-
 /*
 function updateCurrentSnailmaster(){
     var currentsnailmasterdoc=document.getElementById('currentsnailmaster')
@@ -513,8 +528,8 @@ function enableButtons(){
 }
 
 web3.version.getNetwork((err, netId) => {
-    if(netId!="1"){
-        displayModalMessage("Please switch to the Ethereum main network "+netId)
+    if(netId!="3"){
+        displayModalMessage("Switch to Ropsten. ID: "+netId)
         disableButtons()
     }
     /*
